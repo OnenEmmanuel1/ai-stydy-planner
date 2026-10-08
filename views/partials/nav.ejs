@@ -1,0 +1,13 @@
+<aside class="aissp-sidebar" aria-label="Main navigation">
+  <a class="aissp-brand" href="/dashboard"><span class="aissp-brand-mark" aria-hidden="true">✳</span><span>Smart Study<small>PLANNER</small></span></a>
+  <div class="aissp-nav-label">WORKSPACE</div>
+  <nav class="aissp-side-links">
+    <a class="aissp-side-link" href="/dashboard"><span aria-hidden="true">▦</span> Dashboard</a>
+    <a class="aissp-side-link" href="/planner"><span aria-hidden="true">▤</span> Study planner</a>
+    <a class="aissp-side-link" href="/chat"><span aria-hidden="true">◌</span> Study assistant</a>
+    <% if(user.role==='Admin'){ %><a class="aissp-side-link" href="/admin"><span aria-hidden="true">⚙</span> Administration</a><% } %>
+  </nav>
+  <div class="aissp-sidebar-bottom"><div class="aissp-profile"><span class="aissp-avatar"><%= String(user.fullName||'S').slice(0,1).toUpperCase() %></span><span><strong><%= user.fullName %></strong><small><%= user.role %></small></span></div><form method="post" action="/logout"><button class="aissp-signout"><span aria-hidden="true">↪</span> Sign out</button></form></div>
+</aside>
+<div class="aissp-mobilebar"><a class="aissp-brand" href="/dashboard"><span class="aissp-brand-mark" aria-hidden="true">✳</span> Smart Study</a><button class="btn btn-sm btn-outline-secondary" data-bs-toggle="offcanvas" data-bs-target="#mobileNav" aria-label="Open navigation">Menu</button></div>
+<div class="offcanvas offcanvas-start" tabindex="-1" id="mobileNav"><div class="offcanvas-header"><h2 class="offcanvas-title h5">Navigation</h2><button class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button></div><div class="offcanvas-body"><a class="d-block py-2" href="/dashboard">Dashboard</a><a class="d-block py-2" href="/planner">Study planner</a><a class="d-block py-2" href="/chat">Study assistant</a><% if(user.role==='Admin'){ %><a class="d-block py-2" href="/admin">Administration</a><% } %><form method="post" action="/logout" class="mt-3"><button class="btn btn-outline-secondary">Sign out</button></form></div></div>

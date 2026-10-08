@@ -1,0 +1,9 @@
+<%- include('partials/head',{title:'Sign in'}) %>
+<main class="container aissp-login-page py-4 py-lg-5">
+  <div class="row align-items-center justify-content-center g-4 g-xl-5">
+    <%- include('partials/study-art') %>
+    <section class="col-md-8 col-lg-5 col-xl-4" aria-labelledby="aissp-login-title">
+      <div class="aissp-card aissp-login-card p-4 p-lg-5"><p class="aissp-eyebrow mb-2">WELCOME BACK</p><h2 class="h3 mb-1" id="aissp-login-title">Sign in to continue</h2><p class="aissp-muted mb-4">Your study plan is ready when you are.</p><% if(registered){ %><div class="alert alert-success" role="status">Your student account is ready. Sign in to continue.</div><% } %><% if(error){ %><div class="alert alert-danger" role="alert"><%= error %></div><% } %><form method="post" action="/login"><label class="form-label" for="email">Email</label><input class="form-control mb-3" id="email" name="email" type="email" required autocomplete="username"><label class="form-label" for="password">Password</label><input class="form-control mb-4" id="password" name="password" type="password" required autocomplete="current-password"><button class="btn aissp-primary-btn w-100">Sign in</button></form><p class="aissp-register-login mb-0">New here? <a href="/register">Create a student account</a></p></div>
+    </section>
+  </div>
+</main></body></html>

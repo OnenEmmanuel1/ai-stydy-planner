@@ -1,0 +1,18 @@
+<%- include('partials/head',{title:'Create account'}) %>
+<main class="container aissp-login-page py-4 py-lg-5">
+  <div class="row align-items-center justify-content-center g-4 g-xl-5">
+    <%- include('partials/study-art') %>
+    <section class="col-md-8 col-lg-5 col-xl-4" aria-labelledby="aissp-register-title">
+      <div class="aissp-card aissp-login-card p-4 p-lg-5"><p class="aissp-eyebrow mb-2">GET STARTED</p><h2 class="h3 mb-1" id="aissp-register-title">Create your account</h2><p class="aissp-muted mb-4">Build a study plan that works for you.</p>
+        <% if(error){ %><div class="alert alert-danger" role="alert"><%= error %></div><% } %>
+        <form method="post" action="/register">
+          <label class="form-label" for="fullName">Full name</label><input class="form-control mb-3" id="fullName" name="fullName" type="text" value="<%= values.fullName||'' %>" minlength="2" maxlength="100" autocomplete="name" required>
+          <label class="form-label" for="email">Email</label><input class="form-control mb-3" id="email" name="email" type="email" value="<%= values.email||'' %>" maxlength="100" autocomplete="email" required>
+          <label class="form-label" for="password">Password</label><input class="form-control mb-2" id="password" name="password" type="password" minlength="10" maxlength="72" autocomplete="new-password" aria-describedby="aissp-password-hint" required><p class="aissp-form-hint mb-4" id="aissp-password-hint">Use at least 10 characters.</p>
+          <button class="btn aissp-primary-btn w-100">Create account</button>
+        </form>
+        <p class="aissp-register-login mb-0">Already have an account? <a href="/login">Sign in</a></p>
+      </div>
+    </section>
+  </div>
+</main></body></html>
